@@ -1,17 +1,54 @@
+int x = width/2;
+int y = width/2;
+
+int rx = 200;
+int ry = 200;
+int rySpeed = 5;
 
 void setup()
 {
-  size(400,400);
-  
+  size(1800,300);
   stroke(456);
 }
 
 void draw()
 {
-  int x = mouseX;
-  int y = mouseY;
-  
   background(56345);
+  lilGuy();
+  redRect();
+  
+  
+  fill(#0017FF);
+  triangle(150, 50, 90, 120, 320, 90);
+  fill(#B200FF);
+  arc(600, 300, 140, 180, PI, TWO_PI); //top half of a circle
+  fill (#FAFF00);
+  rect(900, 200, 200,200); 
+  fill(#FF7300);
+  arc(1300, 300, 140, 180, PI, TWO_PI); //top half of a circle
+  
+  
+}
+void redRect()
+{
+  fill(#FF0000);
+  rect(rx, ry, 200,100); 
+  ry = ry + rySpeed;
+  if (ry <=0)
+  {
+    rySpeed = rySpeed * -1;
+  }
+  if (ry > height)
+  {
+     rySpeed = rySpeed * -1;
+  }
+}
+
+void lilGuy()
+{
+  x = mouseX;
+  y = mouseY;
+
   fill(#FC6500); //red
   ellipse(x,y,130,130);  //body
   
